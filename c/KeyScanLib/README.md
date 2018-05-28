@@ -15,15 +15,17 @@ int main(void)
 {
     KeyInit(&mkey);
     KeySetInput(&mkey, gpio_key, 0);      // gpio_key() is a function to get key status
-    KeyScanAddKey(&mkey);
     // enable long press fuction, 30 means long presssed more than 30*SCAN_CYCLE_MS works
     KeyEnableLong(&mkey, 30);
     // enable double click fuction, 4 means less than 4*SCAN_CYCLE_MS between two clcik as double_click
     KeyEnableDouble(&mkey, 4);
     
+    KeyScanAddKey(&mkey);
+    
     for(;;)
     {
         delay_ms(SCAN_CYCLE_MS);
+        
         KeyScan();
         
         if(mkey.key_signal == KEY_CLICKED)
