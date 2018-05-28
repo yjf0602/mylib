@@ -3,4 +3,4 @@ some lib code.
 
 
 ## c
-- keyscanlib key scan lib keyscan
+- [keyscanlib](https://github.com/yjf0602/mylib/tree/master/c/KeyScanLib) key scan lib keyscan
