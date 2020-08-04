@@ -90,13 +90,13 @@ void gpio_i2c_write_byte(gpio_i2c_t *i2c, unsigned char byte)
 {
     unsigned char i;
     i2c->sclk_low();
+    i2c->sda_out();
     for(i=0; i<8; i++)
     {
         if(byte & 0x80)
             i2c->sda_high();
         else
             i2c->sda_low();
-        i2c->sda_out();
         byte <<= 1;
         gpio_i2c_delay_us(5);
         i2c->sclk_high();
